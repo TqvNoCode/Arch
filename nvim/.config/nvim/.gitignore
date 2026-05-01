@@ -1,0 +1,8 @@
+# Ignore folders that contain state or temporary data
+.netrwhist
+undo/
+backups/
+swaps/
+
+# Optional: Ignore lazy-lock.json if you want to manage versions manually
+# lazy-lock.json
