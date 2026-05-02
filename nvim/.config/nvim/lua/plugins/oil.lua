@@ -83,7 +83,7 @@ return {
             if entry and dir then
                 local full_path = vim.fn.fnamemodify(dir .. entry.name, ":p")
 
-                local stat = vim.loop.fs_stat(full_path)
+                local stat = vim.uv.fs_stat(full_path)
 
                 if stat then
                     vim.notify(

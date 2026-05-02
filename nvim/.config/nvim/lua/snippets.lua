@@ -13,4 +13,4 @@ ls.add_snippets("cpp", {
 
 vim.keymap.set("n", "<leader>nw", function()
     require("luasnip").jump(1)
-end, { silent = true, desc = "LuaSnip jump backward" })
+end, { silent = true, desc = "LuaSnip jump forward" })

@@ -22,6 +22,9 @@ return {
                 },
                 follow_current_file = { enabled = true, leave_dirs_open = false, },
             },
+            mappings = {
+                ["q"] = "Close Neotree",
+            },
         })
 
         -- Phím tắt để mở/đóng nhanh Neo-tree
