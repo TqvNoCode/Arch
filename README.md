@@ -16,20 +16,6 @@
 
 ---
 
-## 📁 Directory Structure
-
-```
-~/dotfiles/
-├── nvim/
-│   └── nvim/          # Neovim (.config/nvim)
-├── tmux/
-│   └── .tmux/         # tmux (.tmux.conf)
-├── .gitignore
-└── README.md
-```
-
----
-
 ## 🚀 Installation
 
 ### 1. Install Required Packages
