@@ -24,7 +24,7 @@ return {
             ["<C-e>"] = function()
                 neoscroll.ctrl_u({ duration = 250 })
             end,
-            ["<C-d>"] = function()
+            ["<C-y>"] = function()
                 neoscroll.ctrl_d({ duration = 250 })
             end,
 
@@ -37,10 +37,10 @@ return {
             end,
 
             -- Usually Use
-            ["<C-y>"] = function()
+            ["<C-u>"] = function()
                 neoscroll.scroll(-3, { move_cursor = false, duration = 100 })
             end,
-            ["<C-u>"] = function()
+            ["<C-d>"] = function()
                 neoscroll.scroll(3, { move_cursor = false, duration = 100 })
             end,
 

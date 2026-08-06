@@ -17,9 +17,7 @@ return {
                 -- null_ls.builtins.formatting.gofumpt,
                 -- null_ls.builtins.code_actions.impl,
                 -- null_ls.builtins.formatting.google_java_format,
-
-                -- C / Assembly
-                null_ls.builtins.formatting.asmfmt
+                -- null_ls.builtins.formatting.asmfmt,
             },
         })
         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Auto format code" })
