@@ -102,4 +102,4 @@ The first time you open nvim, lazy.nvim will auto-install the plugins; run `:Mas
 ---
  
 *Feel free to fork, adapt, and make it your own.*
-
+*Inspired by [kunkka's dotfiles](https://github.com/kunkka19xx/nix)*
