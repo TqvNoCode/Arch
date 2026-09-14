@@ -4,9 +4,9 @@ return {
     opts = {
         -- add language u want to highlight in code
         ensure_installed = {
-            "c", "cpp", "arduino", "python", 
-            "lua", "vim", "vimdoc",          -- neovim configuration 
-            "bash", "json", "markdown"       -- System and takenote
+            "c", "cpp", "arduino", "python",
+            "lua", "vim", "vimdoc",                             -- neovim configuration 
+            "bash", "json", "markdown", "markdown_inline"       -- System and takenote
         },
         
         auto_install = true, 
