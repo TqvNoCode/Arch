@@ -5,16 +5,16 @@ return {
         local neoscroll = require("neoscroll")
 
         require("neoscroll").setup({
-            hide_cursor = false, -- Hide cursor while scrolling
-            stop_eof = true,    -- Stop at <EOF> when scrolling downwards
-            respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-            cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-            duration_multiplier = 0.8, -- Global duration multiplier
-            easing = "linear",  -- Default easing function
-            pre_hook = nil,     -- Function to run before the scrolling animation starts
-            post_hook = nil,    -- Function to run after the scrolling animation ends
-            performance_mode = false, -- Disable "Performance Mode" on all buffers.
-            ignored_events = {  -- Events ignored while scrolling
+            hide_cursor = false,
+            stop_eof = true,
+            respect_scrolloff = false,
+            cursor_scrolls_alone = true,
+            duration_multiplier = 0.8,
+            easing = "linear",
+            pre_hook = nil,
+            post_hook = nil,
+            performance_mode = false,
+            ignored_events = {
                 "WinScrolled",
                 "CursorMoved",
             },
