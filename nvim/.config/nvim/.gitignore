@@ -1,8 +1,40 @@
-# Ignore folders that contain state or temporary data
-.netrwhist
-undo/
-backups/
-swaps/
+# Logs / OS junk
+*.log
+.DS_Store
+result
+/data
+ 
+# Secrets & credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.kdbx
+*.secret
+secrets.*
+.netrc
+.npmrc
+.pypirc
+ 
+.ssh/
+.gnupg/
+.aws/
+.config/gh/hosts.yml
+id_rsa*
+id_ed25519*
+id_ecdsa*
+id_dsa*
+ 
+# Local-only shell stuff
+.aliases
+.zsh_history
+.bash_history
+.python_history
+.lesshst
+.viminfo
 
 # Optional: Ignore lazy-lock.json if you want to manage versions manually
 # lazy-lock.json

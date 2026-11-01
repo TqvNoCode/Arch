@@ -2,9 +2,8 @@
 
 vim.diagnostic.config({
   float = {
-    -- Sử dụng "single" để tránh lỗi lòi nền mà Vinh vừa gặp
     border = "rounded",
-    source = "always",  -- Hiện nguồn lỗi để Vinh dễ tra cứu khi làm đồ án DUT
+    source = "always",
     header = { " 󰋼 Diagnostics ", "DiagnosticFloating" },
     prefix = function(_, i) return string.format("%d. ", i) end,
     focusable = false,
@@ -27,25 +26,59 @@ vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next, { desc = "Next error
 vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev, { desc = "Previos error"}) -- previous err
 vim.keymap.set("n", "<leader>se", vim.diagnostic.open_float, { desc = "Details of error (floating)" })
 
+-- OLD SETTING FOR LEADER + CP
+-- vim.keymap.set("n", "<leader>cp", function()
+--     local filepath = vim.fn.expand("%:p")
+--     vim.fn.setreg("+", filepath)                     -- Copy to Neovim clipboard
+--     vim.fn.system("echo '" .. filepath .. "' | wl-copy") -- Copy to Arch Kde clipboard
+--     print("Copied: " .. filepath)
+-- end, { desc = "Copy absolute path to clipboard" })
+--
+
 
 -- copy current file path (absolute) into clipboard
 vim.keymap.set("n", "<leader>cp", function()
     local filepath = vim.fn.expand("%:p")
-    vim.fn.setreg("+", filepath)                     -- Copy to Neovim clipboard
-    vim.fn.system("echo '" .. filepath .. "' | wl-copy") -- Copy to Arch Kde clipboard
+    if filepath == "" then
+        print("No file to copy")
+        return
+    end
+ 
+    vim.fn.setreg("+", filepath) -- Neovim clipboard
+ 
+    if vim.fn.executable("wl-copy") == 1 then
+        local job = vim.fn.jobstart({ "wl-copy" })
+        if job > 0 then
+            vim.fn.chansend(job, filepath)
+            vim.fn.chanclose(job, "stdin")
+        end
+    end
+ 
     print("Copied: " .. filepath)
 end, { desc = "Copy absolute path to clipboard" })
+
+-- OLD SETTING FOR LEADER + OB
+-- vim.keymap.set("n", "<leader>ob", function()
+--     local file_path = vim.fn.expand("%:p")
+--     if file_path ~= "" then
+--         -- xdg-open will auto open Firefox/Chrome depend on KDE setting 
+--         os.execute("xdg-open " .. file_path .. " &") 
+--     else
+--         print("No file to open")
+--     end
+-- end, { desc = "Open current file in browser" })
 
 
 -- open the current file in browser
 vim.keymap.set("n", "<leader>ob", function()
     local file_path = vim.fn.expand("%:p")
-    if file_path ~= "" then
-        -- xdg-open will auto open Firefox/Chrome depend on KDE setting 
-        os.execute("xdg-open " .. file_path .. " &") 
-    else
+    if file_path == "" then
         print("No file to open")
+        return
     end
+ 
+    -- xdg-open will auto open Firefox/Chrome depending on KDE setting.
+    vim.fn.jobstart({ "xdg-open", file_path }, { detach = true })
 end, { desc = "Open current file in browser" })
 
 
