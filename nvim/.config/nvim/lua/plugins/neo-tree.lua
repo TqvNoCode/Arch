@@ -27,7 +27,6 @@ return {
             },
         })
 
-        -- Phím tắt để mở/đóng nhanh Neo-tree
         vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = "Open Neotree" })
     end
 }

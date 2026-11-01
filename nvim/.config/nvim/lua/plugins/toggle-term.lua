@@ -31,16 +31,16 @@ return {
         -- Switch term from Floating mode to horizontal mode
         local function toggle_terminal_direction()
             local terms = require("toggleterm.terminal").get_all()
-            local term = terms[1] -- Lấy terminal đầu tiên (ID 1)
+            local term = terms[1]
 
             if term then
                 local current_dir = term.direction
                 local new_dir = (current_dir == "float") and "horizontal" or "float"
 
-                term:close() -- Đóng tạm thời
-                term:open(nil, new_dir) -- Mở lại với hướng mới
+                term:close() 
+                term:open(nil, new_dir)
             else
-                -- Nếu chưa có terminal nào, mở mặc định
+                -- if terminal doesn't exsit, open default
                 vim.cmd("ToggleTerm direction=horizontal")
             end
         end

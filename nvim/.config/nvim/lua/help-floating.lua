@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
                     height = height,
                     col = col,
                     row = row,
-                    border = "rounded", -- Đồng bộ style bo góc
+                    border = "rounded",
                     style = "minimal",
                     title = " 📖 Nvim Help ",
                     title_pos = "center",

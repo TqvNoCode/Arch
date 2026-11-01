@@ -10,7 +10,7 @@ return {
 		lazy = false,
 		opts = {
 			auto_install = true,
-			ensure_installed = { "clangd", "pyright", "lua_ls" },
+			ensure_installed = { "clangd", "pyright", "lua_ls", "vtsls" },
 		},
 	},
 	{
@@ -37,7 +37,22 @@ return {
 				},
 			}
 
-			vim.lsp.enable({ "clangd", "pyright", "lua_ls" })
+			-- TYPESCRIPT AND NESTJS
+			vim.lsp.config["vtsls"] = {
+				capabilities = capabilities,
+				settings = {
+					typescript = {
+						suggest = {
+							autoImports = true,
+						},
+						updateImportsOnFileMove = {
+							enabled = "always",
+						},
+					},
+				},
+			}
+
+			vim.lsp.enable({ "clangd", "pyright", "lua_ls", "vtsls"})
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Docs" })
